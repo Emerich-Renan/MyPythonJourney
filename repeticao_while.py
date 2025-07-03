@@ -39,3 +39,16 @@ print('Acabou')
 O (continue) faz o while voltar ao início ignorando o loop.
 O (break) faz o while parar o loop.
 '''
+
+qtd_linhas = 5
+qtd_colunas = 5
+
+linha = 1
+while linha <= qtd_colunas:
+  coluna = 1
+  while coluna <= qtd_colunas:
+    print(f'{linha=}{coluna=}')
+    coluna += 1
+  linha += 1
+
+print('Encerrou')
