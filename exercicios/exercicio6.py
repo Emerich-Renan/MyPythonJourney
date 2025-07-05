@@ -3,8 +3,6 @@ def clear_terminal():
   os.system('cls')
 
 
-
-
 # Jogo de Adivinhação de Letras (Forca Simplificada)
 # Implemente um jogo onde o usuário deve adivinhar a palavra secreta letra por letra.
 # O programa deve:
@@ -14,7 +12,6 @@ def clear_terminal():
 # Avisar se o usuário digitou mais de uma letra.
 # Quando o usuário completar a palavra, mostrar mensagem de vitória e número de tentativas.
 # Perguntar se o usuário quer sair ou continuar jogando.
-
 '''
 while True:
   palavra_chave = 'bananeira'
@@ -61,6 +58,8 @@ while True:
       else:
         continue
 '''
+
+
 # Exercício 2 — Verificador de Número Primo com Saída
 # Faça um programa que:
 # Solicite números ao usuário repetidamente.
@@ -70,7 +69,6 @@ while True:
 # Verifique se o número digitado é primo (divisível apenas por 1 e por ele mesmo).
 # Informe se o número é primo ou não.
 # Repita o processo até que o usuário decida sair.
-
 '''
 while True:
   num_digitado = input('Se quiser sair, digite "s" \n' \
@@ -103,13 +101,14 @@ while True:
     clear_terminal
     print(numero, 'não é primo')
 '''
+
+
 # Exercício 3 — Contador Simples de Vogais
 # Escreva um programa que:
 # Peça ao usuário para digitar uma frase.
 # Conte quantas vogais (a, e, i, o, u) existem nessa frase.
 # Imprima o total de vogais encontradas.
 # Finalize após uma única contagem.
-
 '''
 while True:
   frase = input('Digite uma frase: ')
@@ -123,6 +122,8 @@ while True:
   print(f'A frase contém {contador} vogais')
   break
 '''
+
+
 # Exercício 4 — Análise Detalhada de Vogais com Frequência
 # Construa um programa que:
 # Receba uma frase do usuário (sem diferenciar maiúsculas e minúsculas).
