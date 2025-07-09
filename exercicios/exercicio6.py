@@ -75,7 +75,7 @@ while True:
   'Digite um número e direi se é primo:').lower()
 
   if num_digitado == 's':
-    clear_terminal
+    clear_terminal()
     print('Obrigado!')
     exit()
 
@@ -95,10 +95,10 @@ while True:
       divisores += 1
 
   if divisores == 2:
-    clear_terminal
+    clear_terminal()
     print(numero, 'é primo!')
   else:
-    clear_terminal
+    clear_terminal()
     print(numero, 'não é primo')
 '''
 
