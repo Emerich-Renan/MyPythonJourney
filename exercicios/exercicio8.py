@@ -53,50 +53,56 @@ O segundo dígito do CPF é 0
 import re
 import sys
 
-# Primeiro Dígito
+# Bloco do Primeiro Dígito
 while True:
   entrada = input('Digite seu cpf: ').replace('.', '').replace('-', '')
-  cpf_usuario = re.sub(r'[^0-9]', '', entrada)
+  cpf_usuario = re.sub(r'\D', '', entrada)
   
-
-  if len(cpf_usuario) > 11:
-    print('CPF inválido')
+  # Verifica se o CPF tem exatamente 11 dígitos numéricos
+  if len(cpf_usuario) != 11:
+    print('CPF inválido: Deve conter exatamente 11 dígitos')
     continue
-
-  entrada_e_sequencial = entrada == entrada[0] * len(entrada)
+  
+  # Verifica se todos os dígitos do CPF são iguais (ex: 11111111111)
+  entrada_e_sequencial = cpf_usuario == cpf_usuario[0] * len(cpf_usuario)
   if entrada_e_sequencial:
     print('Você enviou dados sequenciais')
     sys.exit()
 
-
+  # Extrai os 9 primeiros dígitos para calcular o primeiro dígito verificador
   nove_digitos = cpf_usuario[:9]
-  multiplo10 = 10
-  resultado_primeiro_digito = 0
+  multiplica10 = 10
+  resultado_digito1 = 0
 
-  for primeiro_digito in nove_digitos:
-    resultado_primeiro_digito += int(primeiro_digito) * multiplo10
-    multiplo10 -= 1
-    
-  primeiro_digito = (resultado_primeiro_digito * 10) %  11
-  primeiro_digito = primeiro_digito if primeiro_digito <= 9 else 0 
+  # Multiplica cada dígito pelo peso decrescente de 10 a 2 e soma os resultados
+  for digito in nove_digitos:
+    resultado_digito1 += int(digito) * multiplica10
+    multiplica10 -= 1
+
+ # Calcula dígito1: se (soma * 10) % 11 > 9, então 0; senão, mantém o valor
+  digito1 = (resultado_digito1 * 10) %  11
+  digito1 = digito1 if digito1 <= 9 else 0 
 
 
-  # Segundo Dígito
+  # Extrai os 10 primeiros dígitos para calcular o segundo dígito verificador
   dez_digitos = cpf_usuario[:10]
-  multiplo11 = 11
+  multiplica11 = 11
   resultado_segundo_digito = 0
 
-  for segundo_digito in dez_digitos:
-    resultado_segundo_digito += int(segundo_digito) * multiplo11
-    multiplo11 -= 1
+  # Multiplica cada dígito pelo peso decrescente de 11 a 2 e soma os resultados
+  for digito in dez_digitos:
+    resultado_segundo_digito += int(digito) * multiplica11
+    multiplica11 -= 1
 
-  segundo_digito = (resultado_segundo_digito * 10) % 11
-  segundo_digito = segundo_digito if segundo_digito <= 9 else 0 
-  cpf_calculo = f'{nove_digitos}{primeiro_digito}{segundo_digito}'
-
+  digito2 = (resultado_segundo_digito * 10) % 11
+  digito2 = digito2 if digito2 <= 9 else 0 
+  # Junta os 9 dígitos iniciais com os dois dígitos verificadores calculados
+  cpf_calculado = nove_digitos + str(digito1) + str(digito2)
+  # Formata o CPF para o padrão xxx.xxx.xxx-xx para exibição
   cpf_formatado = f'{cpf_usuario[:3]}.{cpf_usuario[3:6]}.{cpf_usuario[6:9]}-{cpf_usuario[9:]}'
 
-  if cpf_usuario == cpf_calculo:
+  # Compara o CPF informado com o calculado para validar
+  if cpf_usuario == cpf_calculado:
     print(f'Seu CPF {cpf_formatado} é válido')
   else:
-    print('Sei CPF é inválido')  
+    print('Seu CPF é inválido')  
