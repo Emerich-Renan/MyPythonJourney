@@ -27,15 +27,18 @@ Consolidar meus conhecimentos em Python através de exercícios, comentários ex
 
 ---
 
-💡 Sobre mim
+## 💡 Sobre mim
+
 Me chamo Renan Silva Emerich e sou estudante de Análise e Desenvolvimento de Sistemas.
 Este repositório reflete meu compromisso com o aprendizado contínuo e minha jornada para me tornar um desenvolvedor de software capacitado.
 
-📫 Contato
+## 📫 Contato
+
 LinkedIn - linkedin.com/in/dev-renanemerich/
 Email - renan.emerich1@gmail.com
 
-📌 Licença
-Este projeto é livre para estudo. Se quiser usar algum trecho, sinta-se à vontade — mas não esquece de dar os créditos! 😊
+## 📌 Licença
+
+Este projeto é livre para estudo. Se quiser usar algum trecho, sinta-se à vontade, mas não esquece de dar os créditos!
 
 ---
