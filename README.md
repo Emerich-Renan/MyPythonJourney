@@ -34,7 +34,8 @@ Este repositório reflete meu compromisso com o aprendizado contínuo e minha jo
 
 ## 📫 Contato
 
-LinkedIn - linkedin.com/in/dev-renanemerich/
+LinkedIn - linkedin.com/in/dev-renanemerich
+
 Email - renan.emerich1@gmail.com
 
 ## 📌 Licença
