@@ -22,18 +22,18 @@ print('Você saiu')
 contador = 0
 
 while contador <= 50:
-  contador += 1
+    contador += 1
 
-  if contador == 6:
-    print('Não vou mostrar o 6')
-    continue
+    if contador == 6:
+        print('Não vou mostrar o 6')
+        continue
 
-  print(contador)
+    print(contador)
 
-  if contador == 37:
-    break
+    if contador == 37:
+        break
 
-print('Acabou') 
+print('Acabou')
 
 '''
 O (continue) faz o while voltar ao início ignorando o loop.
@@ -45,10 +45,10 @@ qtd_colunas = 5
 
 linha = 1
 while linha <= qtd_colunas:
-  coluna = 1
-  while coluna <= qtd_colunas:
-    print(f'{linha=}{coluna=}')
-    coluna += 1
-  linha += 1
+    coluna = 1
+    while coluna <= qtd_colunas:
+        print(f'{linha=}{coluna=}')
+        coluna += 1
+    linha += 1
 
 print('Encerrou')

@@ -66,61 +66,61 @@ O script:
 """
 
 while True:
-  # Entrada do usuário, com limpeza de pontos e traços
-  entrada = input('Digite seu CPF: ').replace('.', '').replace('-', '')
-  
-  # Remove tudo que não for número
-  cpf_usuario = re.sub(r'\D', '', entrada)
+    # Entrada do usuário, com limpeza de pontos e traços
+    entrada = input('Digite seu CPF: ').replace('.', '').replace('-', '')
 
-  # Verifica se o CPF tem exatamente 11 dígitos
-  if len(cpf_usuario) != 11:
-      print('CPF inválido: Deve conter exatamente 11 dígitos.')
-      continue
+    # Remove tudo que não for número
+    cpf_usuario = re.sub(r'\D', '', entrada)
 
-  # Verifica se todos os dígitos são iguais (ex: 111.111.111-11), o que invalida o CPF
-  entrada_e_sequencial = cpf_usuario == cpf_usuario[0] * len(cpf_usuario)
-  if entrada_e_sequencial:
-      print('CPF inválido: você enviou dados sequenciais.')
-      sys.exit()
+    # Verifica se o CPF tem exatamente 11 dígitos
+    if len(cpf_usuario) != 11:
+        print('CPF inválido: Deve conter exatamente 11 dígitos.')
+        continue
 
-  # ----- Cálculo do primeiro dígito verificador -----
-  
-  nove_digitos = cpf_usuario[:9]  # Pega os 9 primeiros dígitos
-  multiplica10 = 10
-  resultado_digito1 = 0
+    # Verifica se todos os dígitos são iguais (ex: 111.111.111-11), o que invalida o CPF
+    entrada_e_sequencial = cpf_usuario == cpf_usuario[0] * len(cpf_usuario)
+    if entrada_e_sequencial:
+        print('CPF inválido: você enviou dados sequenciais.')
+        sys.exit()
 
-  # Multiplica cada dígito por pesos de 10 até 2 e soma os produtos
-  for digito in nove_digitos:
-      resultado_digito1 += int(digito) * multiplica10
-      multiplica10 -= 1
+    # ----- Cálculo do primeiro dígito verificador -----
 
-  # Aplica a fórmula para o primeiro dígito verificador
-  digito1 = (resultado_digito1 * 10) % 11
-  digito1 = digito1 if digito1 <= 9 else 0
+    nove_digitos = cpf_usuario[:9]  # Pega os 9 primeiros dígitos
+    multiplica10 = 10
+    resultado_digito1 = 0
 
-  # ----- Cálculo do segundo dígito verificador -----
+    # Multiplica cada dígito por pesos de 10 até 2 e soma os produtos
+    for digito in nove_digitos:
+        resultado_digito1 += int(digito) * multiplica10
+        multiplica10 -= 1
 
-  dez_digitos = cpf_usuario[:10]  # Já inclui o primeiro dígito verificador
-  multiplica11 = 11
-  resultado_segundo_digito = 0
+    # Aplica a fórmula para o primeiro dígito verificador
+    digito1 = (resultado_digito1 * 10) % 11
+    digito1 = digito1 if digito1 <= 9 else 0
 
-  # Multiplica por pesos de 11 até 2 e soma os produtos
-  for digito in dez_digitos:
-      resultado_segundo_digito += int(digito) * multiplica11
-      multiplica11 -= 1
+    # ----- Cálculo do segundo dígito verificador -----
 
-  # Aplica a fórmula para o segundo dígito verificador
-  digito2 = (resultado_segundo_digito * 10) % 11
-  digito2 = digito2 if digito2 <= 9 else 0
+    dez_digitos = cpf_usuario[:10]  # Já inclui o primeiro dígito verificador
+    multiplica11 = 11
+    resultado_segundo_digito = 0
 
-  # Junta os 9 dígitos com os dois verificadores calculados
-  cpf_calculado = nove_digitos + str(digito1) + str(digito2)
+    # Multiplica por pesos de 11 até 2 e soma os produtos
+    for digito in dez_digitos:
+        resultado_segundo_digito += int(digito) * multiplica11
+        multiplica11 -= 1
 
-  # Formata o CPF inserido para exibição (padrão xxx.xxx.xxx-xx)
-  cpf_formatado = f'{cpf_usuario[:3]}.{cpf_usuario[3:6]}.{cpf_usuario[6:9]}-{cpf_usuario[9:]}'
+    # Aplica a fórmula para o segundo dígito verificador
+    digito2 = (resultado_segundo_digito * 10) % 11
+    digito2 = digito2 if digito2 <= 9 else 0
 
-  # Verifica se o CPF informado bate com o calculado
-  if cpf_usuario == cpf_calculado:
-      print(f'Seu CPF {cpf_formatado} é válido.')
-  else:
-      print('Seu CPF é inválido.')
+    # Junta os 9 dígitos com os dois verificadores calculados
+    cpf_calculado = nove_digitos + str(digito1) + str(digito2)
+
+    # Formata o CPF inserido para exibição (padrão xxx.xxx.xxx-xx)
+    cpf_formatado = f'{cpf_usuario[:3]}.{cpf_usuario[3:6]}.{cpf_usuario[6:9]}-{cpf_usuario[9:]}'
+
+    # Verifica se o CPF informado bate com o calculado
+    if cpf_usuario == cpf_calculado:
+        print(f'Seu CPF {cpf_formatado} é válido.')
+    else:
+        print('Seu CPF é inválido.')

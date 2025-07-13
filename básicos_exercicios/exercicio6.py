@@ -1,6 +1,8 @@
 import os
+
+
 def clear_terminal():
-  os.system('cls')
+    os.system('cls')
 
 
 # Jogo de Adivinhação de Letras (Forca Simplificada)
@@ -137,8 +139,8 @@ frase = input('Digite uma frase: ').lower()
 vogais = {'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0}
 
 for letra in frase:
-  if letra in vogais:
-    vogais[letra] += 1
+    if letra in vogais:
+        vogais[letra] += 1
 
 total_vogais = sum(vogais.values())
 
@@ -146,4 +148,5 @@ mais_frequente = max(vogais, key=vogais.get)
 quantidade = vogais[mais_frequente]
 
 print(f'A frase contém {total_vogais} vogais.')
-print(f'A vogal que mais apareceu foi "{mais_frequente}", com {quantidade} vez(es)')
+print(
+    f'A vogal que mais apareceu foi "{mais_frequente}", com {quantidade} vez(es)')

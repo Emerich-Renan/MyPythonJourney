@@ -16,8 +16,10 @@
 
 # Função que exibe uma saudação personalizada
 # Se nenhum nome for passado, usa "Sem nome" como parâmetro padrão
+
+
 def saudacao(nome='Sem nome'):
-  print(f'Olá {nome}!')
+    print(f'Olá {nome}!')
 
 
 # Chamadas da função com diferentes argumentos
@@ -29,14 +31,15 @@ saudacao()  # Aqui não passa argumento, então imprime "Olá Sem nome!"
 
 # Define uma função que verifica se um número é múltiplo de outro
 def multiplo_de(numero, multiplo):
-  # Calcula se o número é divisível pelo outro (ou seja, se o resto da divisão é zero)
-  resultado = numero % multiplo == 0
-  
-  # Exibe a pergunta formatada sem quebrar a linha
-  print(f'{numero} é múltiplo de {multiplo}?', end=' ')
-  
-  # Exibe o resultado (True ou False)
-  print(resultado)
+    # Calcula se o número é divisível pelo outro (ou seja, se o resto da divisão é zero)
+    resultado = numero % multiplo == 0
+
+    # Exibe a pergunta formatada sem quebrar a linha
+    print(f'{numero} é múltiplo de {multiplo}?', end=' ')
+
+    # Exibe o resultado (True ou False)
+    print(resultado)
+
 
 # Testes da função com diferentes pares de números
 multiplo_de(16, 8)   # True, pois 16 é divisível por 8
@@ -45,23 +48,28 @@ multiplo_de(10, 2)   # True, pois 10 é divisível por 2
 
 
 # Define uma função que soma três valores, sendo c um valor padrão
-def soma(a,b,c=20):
-  # imprime os valores de a,b & c, depois imprime a soma
-  print(f'{a=} b={b} {c=}', '|', 'a + b + c =', a + b + c) # {a=} é a mesma coisa que b={b}
+def soma(a, b, c=20):
+    # imprime os valores de a,b & c, depois imprime a soma
+    # {a=} é a mesma coisa que b={b}
+    print(f'{a=} b={b} {c=}', '|', 'a + b + c =', a + b + c)
 
-soma(5,10)
-soma(b=10, a=5) 
+
+soma(5, 10)
+soma(b=10, a=5)
 
 # Define uma função com um valor None no parâmetro e verifica se
 # o terceiro valor foi passado ou não. Se não for passado, soma só x e y.
 # Se for passado, soma x, y e z.
-def somar(x, y, z=None):
-  if z is None:
-    print(f'{x=} {y=}', '|', 'A soma é:', x + y)
-  else:
-    print(f'{x=} {y=} {z=}', '|', 'A soma é:', x + y + z)  
 
-somar(10, 20) # Chama a função com dois valores (z será None)
-somar(10, 20, 30) # Teste com três valores, z será usado
-somar(z=20, y=10, x=5) # Passando os parâmetros fora de ordem usando nomeação
-somar(y=20, x=10) # Outro com nomeação e sem z
+
+def somar(x, y, z=None):
+    if z is None:
+        print(f'{x=} {y=}', '|', 'A soma é:', x + y)
+    else:
+        print(f'{x=} {y=} {z=}', '|', 'A soma é:', x + y + z)
+
+
+somar(10, 20)  # Chama a função com dois valores (z será None)
+somar(10, 20, 30)  # Teste com três valores, z será usado
+somar(z=20, y=10, x=5)  # Passando os parâmetros fora de ordem usando nomeação
+somar(y=20, x=10)  # Outro com nomeação e sem z

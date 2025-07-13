@@ -10,6 +10,7 @@ def escopo():
 
 # print(x)  # NameError: 'x' está no escopo local e não pode ser acessado aqui
 
+
 escopo()
 
 
@@ -21,7 +22,7 @@ def saudacao():
     mensagem = "Essa mensagem é local à função"
     print("Dentro da função:", mensagem)
 
+
 saudacao()
 
 # print("Fora da função:", mensagem)  # NameError: 'mensagem' não existe fora da função
-

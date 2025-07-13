@@ -8,14 +8,14 @@
 # not (não): Inverte o valor da expressão.
 # Se a expressão for True, retorna False, e vice-versa.
 
-      
+
 entrada = input('[E]ntrar ou [S]air? ')
 senha_digitada = input('Digite a senha: ')
 
 senha_permitida = '123456'
 
 # Os parenteses permitem agrupar as condições
-if (entrada == 'E' or entrada == 'e') and senha_digitada == senha_permitida: 
+if (entrada == 'E' or entrada == 'e') and senha_digitada == senha_permitida:
     print('Você entrou no sistema')
 elif (entrada == 'E' or entrada == 'e') and senha_digitada != senha_permitida:
     print('Senha incorreta')
@@ -24,5 +24,5 @@ elif (entrada == 'S' or entrada == 's'):
 if not (entrada == 'E' or entrada == 'e') and not (entrada == 'S' or entrada == 's'):
     print('Você não digitou nem entrar e nem sair. Para isso, digite "E" ou "S".')
 
-# Neste exemplo o else não foi utilizado, pois o if not cobriu essa situação. (mas o else é mais 
+# Neste exemplo o else não foi utilizado, pois o if not cobriu essa situação. (mas o else é mais
 # legível)

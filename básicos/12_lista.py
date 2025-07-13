@@ -11,10 +11,10 @@ Criar, ler, alterar, apagar = lista[i] (CRUD)
 #        0   1   2   3   4   5
 lista = ['João', 'Ana', 'Paulo', 'Gabriel', 'Lucas']
 lista.append('Kalinka')
-lista.insert(0,'Renan')
+lista.insert(0, 'Renan')
 lista.pop()
 
 indices = range(len(lista))
 
 for nome in indices:
-  print(f'{nome} - {lista[nome]}')
+    print(f'{nome} - {lista[nome]}')

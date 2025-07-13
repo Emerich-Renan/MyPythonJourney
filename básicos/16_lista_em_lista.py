@@ -2,13 +2,13 @@
   Lista de listas e seus índices
 """
 
-salas = [ 
+salas = [
 
-  ['Ana', 'Clara', ],
+    ['Ana', 'Clara', ],
 
-  ['Helena', ],
+    ['Helena', ],
 
-  ['Eduarda', 'Renan', 'Elaine']
+    ['Eduarda', 'Renan', 'Elaine']
 ]
 
 # print(salas[1][0])
@@ -18,7 +18,6 @@ salas = [
 # print(salas[1][1][2])
 
 for sala in salas:
-  print(f'A sala é {sala}')
-  for aluno in sala:
-    print(aluno)
-
+    print(f'A sala é {sala}')
+    for aluno in sala:
+        print(aluno)
