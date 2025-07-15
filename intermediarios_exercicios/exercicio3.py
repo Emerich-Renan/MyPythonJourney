@@ -1,5 +1,7 @@
 # # Exercício - sistema de perguntas e respostas
 
+import os
+
 # perguntas = [
 #     {
 #         'Pergunta': 'Quanto é 2+2?',
@@ -125,7 +127,7 @@ for numero, pergunta in enumerate(perguntas, start=1):
     else:
         print(f'\tVidas: {vidas} | pontos: {pontos}')
 
-
+os.system('cls')
 print('\n\tFIM DO JOGO!')
 print(f'Você acertou {pontos} de {len(perguntas)} perguntas!')
 if vidas > 0:
