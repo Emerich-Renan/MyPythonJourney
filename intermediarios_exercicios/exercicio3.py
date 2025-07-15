@@ -103,7 +103,7 @@ for numero, pergunta in enumerate(perguntas, start=1):
         print(f'{letra})', opcao)
 
     escolha = input(
-        'Digite uma opção (a, b, c, d) ou a resposta: ').strip().lower()
+        'Digite uma opção (a, b, c, d) ou a resposta:').strip().lower()
 
     acertou = False
 
@@ -113,6 +113,9 @@ for numero, pergunta in enumerate(perguntas, start=1):
             acertou = True
             pontos += 1
             print('Acertou ✅')
+        else:
+            vidas -= 1
+            print('\tErrou ❌')
     elif escolha == pergunta['Resposta'].lower():
         acertou = True
         pontos += 1
