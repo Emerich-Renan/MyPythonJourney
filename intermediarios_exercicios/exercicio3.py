@@ -17,7 +17,10 @@ perguntas = [
         'Resposta': '5',
     },
 ]
+
+letras = ['a', 'b', 'c', 'd']
 qtd_acertos = 0
+
 for pergunta in perguntas:
     print(pergunta['Pergunta'])
     print()
@@ -25,22 +28,21 @@ for pergunta in perguntas:
     opcoes = pergunta['Opções']
 
     for i, opcao in enumerate(opcoes):
-        print(f'{i})', opcao)
+        letra = letras[i]
+        print(f'{letra})', opcao)
 
     print()
-    entrada = input('Digite uma opção: ')
+    entrada = input(
+        'Digite uma opção (a, b, c, d) ou a resposta: ').lower().strip()
 
-    entrada_int = None
-    qtd_opcoes = len(opcoes)
     acertou = False
 
-    if entrada.isdigit():
-        entrada_int = int(entrada)
-
-    if entrada_int is not None:
-        if entrada_int >= 0 and entrada_int < qtd_opcoes:
-            if opcoes[entrada_int] == pergunta['Resposta']:
-                acertou = True
+    if entrada in letras:
+        indice = letras.index(entrada)
+        if opcoes[indice] == pergunta['Resposta']:
+            acertou = True
+    elif entrada == pergunta['Resposta'].lower():
+        acertou = True
 
     if acertou:
         print('Acertou ✅')
