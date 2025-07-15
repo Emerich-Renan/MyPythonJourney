@@ -55,6 +55,7 @@ import os
 # print(f'Você acertou {qtd_acertos} de {len(pergunta)} perguntas')
 
 
+# Lista de perguntas do quiz, cada uma com opções e a resposta correta
 perguntas = [
     {
         'Pergunta': 'Quanto é 3*3 ?',
@@ -88,51 +89,66 @@ perguntas = [
     },
 ]
 
-vidas = 3
-pontos = 0
-letras = ['a', 'b', 'c', 'd']
+vidas = 3         # número inicial de vidas do jogador
+pontos = 0        # pontuação do jogador
+letras = ['a', 'b', 'c', 'd']  # letras correspondentes às opções
 
-
+# Loop principal que percorre cada pergunta
 for numero, pergunta in enumerate(perguntas, start=1):
     print(f'Pergunta {numero} de {len(perguntas)}')
-    print(pergunta['Pergunta'])
+    print(pergunta['Pergunta'])  # exibe o enunciado da pergunta
 
-    opcoes = pergunta['Opções']
+    opcoes = pergunta['Opções']  # pega as alternativas da pergunta
+
+    # Exibe as opções com as letras (a, b, c, d)
     for i, opcao in enumerate(opcoes):
         letra = letras[i]
         print(f'{letra})', opcao)
 
+    # Pede ao jogador uma entrada
     escolha = input(
         'Digite uma opção (a, b, c, d) ou a resposta:').strip().lower()
 
-    acertou = False
+    acertou = False  # assume que o jogador errou até que se prove o contrário
 
     if escolha in letras:
+        # Se o jogador digitou uma letra válida
         indice = letras.index(escolha)
         if opcoes[indice] == pergunta['Resposta']:
+            # Se a letra escolhida corresponde à resposta correta
             acertou = True
             pontos += 1
             print('Acertou ✅')
         else:
+            # Letra válida, mas resposta errada
             vidas -= 1
             print('\tErrou ❌')
+
     elif escolha == pergunta['Resposta'].lower():
+        # Se o jogador digitou diretamente a resposta correta
         acertou = True
         pontos += 1
         print('\tAcertou ✅')
     else:
+        # Qualquer outra entrada que não seja válida ou correta
         vidas -= 1
         print('\tErrou ❌')
 
+    # Verifica se o jogador perdeu todas as vidas
     if vidas <= 0:
         print('\nVocê perdeu todas as vidas!!')
         break
     else:
+        # Mostra o status atual
         print(f'\tVidas: {vidas} | pontos: {pontos}')
 
+# Limpa a tela (no Windows) para exibir o fim do jogo
 os.system('cls')
+
 print('\n\tFIM DO JOGO!')
 print(f'Você acertou {pontos} de {len(perguntas)} perguntas!')
+
+# Exibe a mensagem de vitória ou derrota
 if vidas > 0:
     print('Parabéns!! Você venceu! 🎉✨')
 else:
