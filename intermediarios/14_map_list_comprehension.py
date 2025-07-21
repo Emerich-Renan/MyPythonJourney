@@ -1,5 +1,11 @@
 # Mapeamento de dados em list comprehension
 
+import pprint
+
+
+def p(v):
+    pprint.pprint(v, sort_dicts=False, width=40)
+
 
 # Lista de produtos, cada um representado por um dicionário com nome e preço
 produtos = [
@@ -19,5 +25,15 @@ novos_produtos = [
     for produto in produtos  # Itera sobre todos os produtos
 ]
 
-# Exibe os produtos um por linha, com o desempacotamento do asterisco e separador '\n'
-print(*novos_produtos, sep='\n')
+
+# print(novos_produtos)
+# p(novos_produtos)
+# lista = [n for n in range(11) if n > 0]
+
+novos_produtos = [
+    {**produto, 'preco': produto['preco'] * 1.05}
+    if produto['preco'] > 20 else {**produto}
+    for produto in produtos
+    if produto['preco'] > 10
+]
+p(novos_produtos)
