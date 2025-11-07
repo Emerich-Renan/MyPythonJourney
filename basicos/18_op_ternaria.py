@@ -15,4 +15,3 @@
 # print(novo_digito2)
 
 print('Valor' if False else 'Outro valor' if False else 'acabou')
-# teste
